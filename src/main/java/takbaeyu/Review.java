@@ -18,15 +18,17 @@ public class Review {
 
     @PostPersist
     public void onPostPersist(){
-        Reviewed reviewed = new Reviewed();
-        BeanUtils.copyProperties(this, reviewed);
-        reviewed.publishAfterCommit();
-
 
     }
 
     @PostUpdate
     public void onPostUpdate(){
+
+        Reviewed reviewed = new Reviewed();
+        BeanUtils.copyProperties(this, reviewed);
+        reviewed.publishAfterCommit();
+
+
         Rerequested rerequested = new Rerequested();
         BeanUtils.copyProperties(this, rerequested);
         rerequested.publishAfterCommit();
