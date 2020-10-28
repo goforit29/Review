@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.Date;
 
 
-@FeignClient(name="payment", url="${api.url.request}")
+@FeignClient(name="request", url="${api.url.request}")
 
 public interface RequestService {
 
