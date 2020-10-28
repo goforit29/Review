@@ -18,17 +18,6 @@ public class Review {
 
     @PostPersist
     public void onPostPersist(){
-
-    }
-
-    @PostUpdate
-    public void onPostUpdate(){
-
-        Reviewed reviewed = new Reviewed();
-        BeanUtils.copyProperties(this, reviewed);
-        reviewed.publishAfterCommit();
-
-
         Rerequested rerequested = new Rerequested();
         BeanUtils.copyProperties(this, rerequested);
         rerequested.publishAfterCommit();
@@ -45,6 +34,18 @@ public class Review {
             ReviewApplication.applicationContext.getBean(takbaeyu.external.RequestService.class)
                     .request(request);
         }
+
+    }
+
+    @PostUpdate
+    public void onPostUpdate(){
+
+        Reviewed reviewed = new Reviewed();
+        BeanUtils.copyProperties(this, reviewed);
+        reviewed.publishAfterCommit();
+
+
+
 
 
     }
